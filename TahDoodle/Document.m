@@ -14,6 +14,48 @@
 
 @implementation Document
 
+
+#pragma mark - Document overrides
+
+#pragma mark - Actions
+- (void)addTask:(id)sender
+{
+  // if there i sno array, create one
+  if(!self.tasks)
+  {
+    self.tasks = [NSMutableArray array];
+  }
+  
+  [self.tasks addObject:@"New Item"];
+  
+  // refresh the display with new data and note unsaved change
+  [self.taskTable reloadData];
+  [self updateChangeCount:NSChangeDone];
+} // addTask()
+
+#pragma mark - Data Source methods
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv
+{
+  // only one section so just return the number of tasks in the array
+  return [self.tasks count];
+} // numberOfRowsInTableView()
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+  // return the item from the task that corresponds to the cell to display
+  return[self.tasks objectAtIndex:row];
+} // objectValueForTableColumn()
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+  // when user chnges a task on the tableView, update the array
+  [self.tasks replaceObjectAtIndex:row withObject:object];
+  
+  // flag the document as having unsaved changes
+  [self updateChangeCount:NSChangeDone];
+} // setObjectValue()
+
 - (instancetype)init {
     self = [super init];
     if (self) {
