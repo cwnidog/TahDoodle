@@ -79,14 +79,27 @@
                             <action selector="addTask:" target="-2" id="sVK-oR-JX1"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tmq-Q7-1X4">
+                        <rect key="frame" x="665" y="13" width="111" height="32"/>
+                        <buttonCell key="cell" type="push" title="Delete Task" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lZn-Tj-aYu">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="deleteTask:" target="-2" id="vZ8-Gg-NJL"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="j3L-nU-EGT" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="0Hc-nQ-uDl"/>
                     <constraint firstItem="j3L-nU-EGT" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="20" id="FA9-uV-ajL"/>
                     <constraint firstItem="qLq-vo-PLq" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="MNC-p2-SWx"/>
+                    <constraint firstAttribute="bottom" secondItem="tmq-Q7-1X4" secondAttribute="bottom" constant="20" id="O4i-hL-EQL"/>
                     <constraint firstAttribute="bottom" secondItem="qLq-vo-PLq" secondAttribute="bottom" constant="20" id="bl5-9J-AZV"/>
+                    <constraint firstAttribute="trailing" secondItem="tmq-Q7-1X4" secondAttribute="trailing" constant="15" id="hT8-T1-lqE"/>
                     <constraint firstAttribute="trailing" secondItem="j3L-nU-EGT" secondAttribute="trailing" constant="15" id="oJc-Mh-SwT"/>
                     <constraint firstAttribute="bottom" secondItem="j3L-nU-EGT" secondAttribute="bottom" constant="46" id="onF-Hk-sSK"/>
+                    <constraint firstItem="tmq-Q7-1X4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qLq-vo-PLq" secondAttribute="trailing" constant="25" id="r7L-SO-4vZ"/>
                 </constraints>
             </view>
             <connections>

@@ -20,7 +20,7 @@
 #pragma mark - Actions
 - (void)addTask:(id)sender
 {
-  // if there i sno array, create one
+  // if there is no array, create one
   if(!self.tasks)
   {
     self.tasks = [NSMutableArray array];
@@ -32,6 +32,22 @@
   [self.taskTable reloadData];
   [self updateChangeCount:NSChangeDone];
 } // addTask()
+
+- (void)deleteTask:(id)sender
+{
+  // can only delete a task if there are tasks
+  if (self.tasks)
+  {
+    // get the selected row number and remove that object from the tasks array
+    NSInteger row = [self.taskTable selectedRow];
+    [self.tasks removeObjectAtIndex:row];
+    
+    // refresh the display with new data and note unsaved change
+    [self.taskTable reloadData];
+    [self updateChangeCount:NSChangeDone];
+  } // if there are tasks
+  
+} // deleteTask
 
 #pragma mark - Data Source methods
 
